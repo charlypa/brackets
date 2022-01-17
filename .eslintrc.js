@@ -1,4 +1,13 @@
 module.exports = {
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
     "rules": {
         // the rules below should be sorted in a same way they are sorted on http://eslint.org/docs/rules page
         // http://eslint.org/docs/rules/#possible-errors
@@ -28,7 +37,7 @@ module.exports = {
         "no-script-url": 2,
         "wrap-iife": [2, "outside"],
         // http://eslint.org/docs/rules/#strict-mode
-        "strict": 2,
+        "strict":  [2, "safe"],
         // http://eslint.org/docs/rules/#variables
         "no-shadow-restricted-names": 2,
         "no-shadow": 1,

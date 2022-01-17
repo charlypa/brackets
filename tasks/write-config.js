@@ -42,9 +42,16 @@ module.exports = function (grunt) {
             appConfigEnvJSON = grunt.file.readJSON("src/brackets.config." + name + ".json"),
             key;
         for (key in appConfigEnvJSON) {
-            if (appConfigEnvJSON.hasOwnProperty(key)) {
+            // For mor info refer
+            // https://ourcodeworld.com/articles/read/1425/how-to-fix-eslint-error-do-not-access-objectprototype-method-hasownproperty-from-target-object-no-prototype-builtins
+            if(Object.prototype.hasOwnProperty.call(appConfigEnvJSON,key)){
                 appConfigJSON.config[key] = appConfigEnvJSON[key];
             }
+         /*   if (appConfigEnvJSON.hasOwnProperty(key)) {
+                appConfigJSON.config[key] = appConfigEnvJSON[key];
+            }
+
+          */
         }
 
         var packageJSON = grunt.file.readJSON("package.json");
